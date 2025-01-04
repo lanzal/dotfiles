@@ -1,0 +1,8 @@
+[Icons]
+Theme=breeze
+
+[Colors:View]
+BackgroundNormal=#xxxxxx 
+
+[KDE]
+widgetStyle=qt6ct-style
