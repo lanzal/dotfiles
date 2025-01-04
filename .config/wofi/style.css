@@ -1,0 +1,12 @@
+window {
+	font-size: 16px;
+	font-family: "JetBrainsMono Nerd Font";
+	background-color: rgba(50,50,50,0.9);
+	color: white;
+}
+
+#input{
+	background-color: rgba(50,50,50,0.5);
+	color: white;
+
+}
