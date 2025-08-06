@@ -1,0 +1,39 @@
+@define-color foreground #eeeeee;
+@define-color foreground-inactive #aaaaaa;
+@define-color background #000000;
+
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 14.5px;
+    padding: 0;
+    margin: 0;
+}
+
+#waybar {
+    color: #87afff;
+    background-color: @background;
+}
+
+#workspaces button {
+    color: #87afff;
+    padding-left: 0.7em;
+}
+
+#workspaces button.empty {
+    color: #364770;
+}
+
+#memory,
+#custom-platform-profile {
+    padding-left: 1em
+}
+
+#wireplumber,
+#battery,
+#idle_inhibitor,
+#language,
+#network,
+#bluetooth,
+#tray {
+    padding-right: 1em 
+}
