@@ -1,0 +1,45 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: rgba(20, 20, 20, 0.9);
+    border-radius: 12px;
+    color: #ffffff;
+}
+
+/* White Elements: Power Suite and Window Title */
+#custom-power, #custom-reboot, #custom-sleep, #window {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0 6px;
+}
+
+#custom-power { padding-left: 12px; }
+
+/* Arch Blue Interactive Elements: All Music Icons unified */
+#mpd, #custom-prev, #custom-play, #custom-next, #custom-repeat {
+    color: #1793D1;
+}
+
+#custom-prev, #custom-play, #custom-next, #custom-repeat {
+    padding: 0 8px;
+    transition: all 0.3s ease;
+}
+
+#custom-prev:hover, #custom-play:hover, #custom-next:hover, #custom-repeat:hover {
+    background: rgba(23, 147, 209, 0.2);
+    border-radius: 6px;
+}
+
+#workspaces button.active {
+    color: #1793D1;
+    border-bottom: 2px solid #1793D1;
+}
+
+#workspaces button { padding: 0 5px; color: #ffffff; }
+
+#temperature, #cpu, #pulseaudio, #clock { padding: 0 10px; }

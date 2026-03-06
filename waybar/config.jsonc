@@ -1,0 +1,69 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "margin-top": 8,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 0,
+
+    "modules-left": ["group/power", "hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["custom/cmus", "custom/prev", "custom/play", "custom/next"], 
+    "modules-right": [
+        "custom/updates",
+        "cpu",
+        "pulseaudio",
+        "clock",
+        "tray"
+    ],
+
+    /* --- LEFT SUITE (Now an expanding drawer) --- */
+    "group/power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-power",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/arrow",
+            "custom/power",
+            "custom/reboot",
+            "custom/sleep"
+        ]
+    },
+    "custom/arrow": { "format": "", "tooltip": false },
+    "custom/power": { "format": "⏻", "on-click": "wlogout &", "tooltip": false },
+    "custom/reboot": { "format": "󰜉", "on-click": "reboot &", "tooltip": false },
+    "custom/sleep": { "format": "󰒲", "on-click": "systemctl suspend &", "tooltip": false },
+    
+    "hyprland/workspaces": { "format": "{name}", "on-click": "activate", "disable-scroll": true },
+    "hyprland/window": { "format": "{title}", "max-length": 40 },
+
+    /* --- CENTER --- */
+    "custom/cmus": { "exec": "~/.config/waybar/cmus.sh", "format": "{}", "interval": 1, "signal": 8, "max-length": 45 },
+    "custom/prev": { "format": "<span color='#1793D1'>󰒮</span>", "on-click": "cmus-remote -r && pkill -RTMIN+8 waybar &", "tooltip": false },
+    "custom/play": { "exec": "cmus-remote -Q 2>/dev/null | grep -q 'status playing' && echo '<span color=\"#1793D1\">󰏤</span>' || echo '<span color=\"#1793D1\">󰐊</span>'; exit 0", "format": "{}", "interval": 1, "signal": 8, "on-click": "cmus-remote -u && pkill -RTMIN+8 waybar &", "tooltip": false },
+    "custom/next": { "format": "<span color='#1793D1'>󰒭</span>", "on-click": "cmus-remote -n && pkill -RTMIN+8 waybar &", "tooltip": false },
+
+    /* --- RIGHT SUITE --- */
+    "custom/updates": {
+        "exec": "~/.config/waybar/updates.sh",
+        "format": "<span color='#1793D1'></span>  {}",
+        "interval": 3600,
+        "on-click": "kitty -e sudo pacman -Syu &",
+        "tooltip": false
+    },
+    "cpu": { "format": "<span color='#1793D1'></span> {usage}%" },
+    "pulseaudio": { 
+        "format": "<span color='#1793D1'>{icon}</span> {volume}%", 
+        "format-muted": "<span color='#ff5555'>󰝟</span> Muted",
+        "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+        "on-click": "pavucontrol &" 
+    },
+    "clock": { 
+        "format": "<span color='#1793D1'></span>  {:%a, %d %b   <span color='#1793D1'></span>  %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "tray": { "icon-size": 18, "spacing": 10 }
+}
