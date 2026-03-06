@@ -1,39 +1,63 @@
-@define-color foreground #eeeeee;
-@define-color foreground-inactive #aaaaaa;
-@define-color background #000000;
-
 * {
-    font-family: JetBrainsMono Nerd Font;
-    font-size: 14.5px;
-    padding: 0;
-    margin: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
 }
 
-#waybar {
-    color: #87afff;
-    background-color: @background;
+window#waybar {
+    background-color: rgba(15, 15, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    color: #ffffff;
 }
 
-#workspaces button {
-    color: #87afff;
-    padding-left: 0.7em;
+/* --- LEFT SIDE: THE NEW POWER DRAWER --- */
+#custom-arrow {
+    color: #1793D1; /* Arch Blue to make it stand out */
+    font-size: 18px;
+    padding: 0 10px;
+    transition: all 0.2s ease;
 }
+#custom-arrow:hover { background: rgba(255, 255, 255, 0.05); border-radius: 8px; }
 
-#workspaces button.empty {
-    color: #364770;
+#custom-power, #custom-reboot, #custom-sleep {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 0 8px; /* Cleaned up padding for the drawer */
+    transition: color 0.2s ease;
 }
+#custom-power:hover { color: #ff5555; }
+#custom-reboot:hover, #custom-sleep:hover { color: #1793D1; }
 
-#memory,
-#custom-platform-profile {
-    padding-left: 1em
-}
+#workspaces button { padding: 0 6px; color: #777777; transition: all 0.2s ease; margin-left: 5px; }
+#workspaces button:hover { background: rgba(255, 255, 255, 0.05); border-radius: 6px; color: #ffffff; }
+#workspaces button.active { color: #1793D1; border-bottom: 2px solid #1793D1; background: transparent; }
 
-#wireplumber,
-#battery,
-#idle_inhibitor,
-#language,
-#network,
-#bluetooth,
-#tray {
-    padding-right: 1em 
+/* --- LEFT SIDE: WINDOW TITLE --- */
+#window { color: #cccccc; font-weight: bold; padding-left: 15px; }
+
+/* --- CENTER: THE MUSIC PILL --- */
+#custom-cmus, #custom-prev, #custom-play, #custom-next {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    padding: 0 10px;
+    margin: 4px 0px; 
 }
+#custom-cmus { border-radius: 8px 0 0 8px; }
+#custom-next { border-radius: 0 8px 8px 0; padding-right: 12px; }
+
+#custom-prev:hover, #custom-play:hover, #custom-next:hover { background: rgba(23, 147, 209, 0.2); }
+
+/* --- RIGHT SIDE: STATS & CLOCK PILL --- */
+#custom-updates, #cpu, #pulseaudio, #clock {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    padding: 0 10px;
+    margin: 4px 0px;
+}
+#custom-updates { border-radius: 8px 0 0 8px; margin-left: 10px; }
+#pulseaudio { border-radius: 0; padding-right: 10px; margin-right: 0; }
+#clock { border-radius: 0 8px 8px 0; padding-right: 15px; margin-right: 10px; font-weight: bold; }
+
+#tray { padding-right: 12px; margin: 4px 0px;}
